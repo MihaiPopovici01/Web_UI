@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% block title%}Home{% endblock %} {% block content%}
+
+<div class="materii-container">
+    <div class="titlu-materii">Materii</div>
+
+    <div class="mat-elem-container" style="display:flex; gap: 20px">
+        {% for datas in data %}
+            <a class="materie-element" href="/materie-info">
+                <div class="titlu-materie">{{datas.Name}}</div>
+                <div>
+                    <img class="img-materie" src="/static/images/WebDevelopmentImage.jpeg">
+                </div>
+            </a>
+        {% endfor%}
+    </div>
+    
+</div>
+
+{% endblock %}

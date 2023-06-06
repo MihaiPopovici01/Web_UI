@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block title%}Sign up{% endblock %} {% block
+content%}
+
+<form method="POST" style="padding: 10% 25%;">
+    <h3 align="center">Alege o disciplina</h3>
+    
+    <div class="form-group">
+        <label for="prof_curs">Alege disciplina: </label>
+        <SELECT name="profesor_curs">
+            {% for d in discipline %}
+            <OPTION value={{d.id}}>{{d.nume}}</option>
+            {% endfor %}
+        </SELECT>
+    </div>
+    <button type="submit" class="btn btn-primary">Alege</button>
+</form>
+{% endblock %}

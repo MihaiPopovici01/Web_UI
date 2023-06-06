@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block title%}Student Info{% endblock %} {% block content%}
+
+<div class="background">
+    <div class="student-info-container">
+        <div class="top-info">
+            <div class="info-salut">Salut {{ student.first_name + " " + student.last_name}}</div>
+            <div class="info-email">{{ user.email }}</div>
+        </div>
+        <div class="shadow-container">
+            <div class="bottom-info">
+                <div class="info-row">
+                    <div class="info-element">CNP: {{ student.cnp}}</div>
+                    <div class="info-element">Serie BI/CI: {{student.serie_bi_ci}}</div>
+                    <div class="info-element">Data nastere: {{student.data_nastere}}</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-element">An studiu: {{ student.an}}</div>
+                    <div class="info-element">Grupa: {{ student.grupa}}</div>
+                    <div class="info-element">Nr. matricol: {{student.nr_matricol}}</div>
+                </div>
+            </div>
+        </div>
+    
+    
+    </div>
+</div>
+
+
+{% endblock %}

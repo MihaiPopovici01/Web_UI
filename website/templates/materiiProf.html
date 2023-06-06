@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block title%}Home{% endblock %} {% block content%}
+
+<div class="materii-container">
+    <div class="titlu-materii">Disciplinele predate</div>
+
+    <label style="font-size: large; font-weight:bold">Curs</label>
+    <div class="mat-elem-container" style="display:flex; gap: 20px">
+        
+        {% for materie in materii1 %}
+        <a class="materie-element" href="/materie-info">
+            <div class="titlu-materie">{{materie.nume}}</div>
+            <div>
+                <img class="img-materie" src="/static/images/WebDevelopmentImage.jpeg">
+            </div>
+        </a>
+        {% endfor%}
+    </div>
+    <label style="font-size: large; font-weight:bold; margin-top:20px">Laborator</label>
+    <div class="mat-elem-container" style="display:flex; gap: 20px">
+        
+        {% for materie in materii2 %}
+        <a class="materie-element" href="/materie-info">
+            <div class="titlu-materie">{{materie.nume}}</div>
+            <div>
+                <img class="img-materie" src="/static/images/WebDevelopmentImage.jpeg">
+            </div>
+        </a>
+        {% endfor%}
+    </div>
+</div>
+
+{% endblock %}
