@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Study Groups{% endblock %}
+{% block content %}
+<div class="study-groups-container">
+    <div class="titlu-study-groups">Study Groups</div>
+
+    <div class="study-group-elem-container">
+        {% for groups in data %}
+        <a class="study-group-element" href="/study-group-info" style="text-decoration: none;">
+            <div class="study-group-disciplin">{{ groups.Disciplin }}</div>
+            <div class="study-group-info">
+                <div class="info-item"><strong>Meeting Date:</strong> {{ groups.Meet_datetime }}</div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

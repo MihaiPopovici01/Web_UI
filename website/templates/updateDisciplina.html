@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block title%}Sign up{% endblock %} {% block
+    content%}
+    
+    <form method="POST" style="padding: 10% 25%;">
+        <h3 align="center">Modifica o disciplina</h3>
+        <div class="form-group">
+            <label for="nume">Nume</label>
+            <input type="text" class="form-control" id="nume" name="nume" placeholder="Numele materiei"  value= {{ data.Name }} />
+            <label for="nume_prof">Numele Profesorului</label>
+            <input type="text" class="form-control" id="nume_prof" name="nume_prof" placeholder="Numele profesorului" value = {{ data.Prof_Name }} />
+            <label for="sala">Sala</label>
+            <input type="text" class="form-control" id="sala" name="sala" placeholder="Sala" value = {{ data.Room }} />
+            <label for="ora_inceperii">Ora inceperii</label>
+            <input type="time" class="form-control" id="ora_inceperii" name="ora_inceperii" placeholder="Ora inceperii" value = {{ data.Cours_Start_Hour }} />
+            <label for="anul">Anul</label>
+            <input type="number" class="form-control" id="anul" name="anul" placeholder="Anul" value = {{ data.Year }} />
+            <label for="anul">Semestrul</label>
+            <input type="number" class="form-control" id="semestrul" name="semestrul" placeholder="Semestrul" value = {{ data.Semester }} />
+        </div>
+        
+        <br />
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" value="DELETE" name="delete" class="btn btn-danger" style="float:right">Delete</button>
+    </form>
+    {% endblock %}

@@ -224,8 +224,7 @@
 .titlu-materie{
     display: flex;
     justify-content: center;
-    background-color: #0e77b0;
-    color: white;
+    color: black;
     border-radius: 30px 30px 0px 0px;
     height: 3rem;
     padding: 0.5rem;
@@ -248,7 +247,7 @@
 }
 
 /* Materie Info */
-.materie-info-container{
+.materie-info-container {
     box-shadow: rgba(17, 17, 26, 0.15) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 32px;
     min-width: 15rem;
     border-radius: 33px;
@@ -257,8 +256,219 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    color: #0e77b0;
-    background-color: white;
+    color: white;
+    background-color: black;
     font-size: 2rem;
     font-weight: bold;
-}
+  }
+.materii-container {
+    margin-top: 20px;
+  }
+  
+  .titlu-materii {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .mat-elem-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .materie-element {
+    width: 300px;
+    padding: 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: white;
+    transition: background-color 0.3s;
+  }
+  
+  .materie-element:hover {
+    background-color: #eee;
+  }
+  
+  .titlu-materie {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .materie-info {
+    margin-top: 10px;
+  }
+  
+  .info-item {
+    margin-bottom: 5px;
+  }
+  
+  strong {
+    font-weight: bold;
+  }
+
+/*events*/
+.events-container {
+    margin-top: 40px;
+    margin-left: 50px; /* Adjust the value to move the container further from the left margin /
+  }
+  
+  .titlu-events {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center; / Align the title to the center */
+  }
+  
+  .event-elem-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .event-element {
+    width: 300px;
+    padding: 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #f5f5f5;
+    transition: background-color 0.3s;
+  }
+  
+  .event-element:hover {
+    background-color: #e8e8e8;
+  }
+  
+  .event-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .event-info {
+    margin-top: 10px;
+  }
+  
+  .info-item {
+    margin-bottom: 5px;
+  }
+  
+  strong {
+    font-weight: bold;
+  }
+
+  /*groups*/
+  .study-groups-container {
+    margin-top: 20px;
+  }
+  
+  .titlu-study-groups {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .study-group-elem-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .study-group-element {
+    width: 300px;
+    padding: 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #f5f5f5;
+    transition: background-color 0.3s;
+  }
+  
+  .study-group-element:hover {
+    background-color: #e8e8e8;
+  }
+  
+  .study-group-disciplin {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .study-group-info {
+    margin-top: 10px;
+  }
+  
+  .info-item {
+    margin-bottom: 5px;
+  }
+  
+  strong {
+    font-weight: bold;
+  }
+
+  /*user*/
+  .users-container {
+    margin-top: 40px;
+    margin-left: 50px;
+  }
+  
+  .titlu-users {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .user-elem-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .user-element {
+    width: 300px;
+    padding: 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #f5f5f5;
+    transition: background-color 0.3s;
+  }
+  
+  .user-element:hover {
+    background-color: #e8e8e8;
+  }
+  
+  .user-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .user-info {
+    margin-top: 10px;
+  }
+  
+  .info-item {
+    margin-bottom: 5px;
+  }
+  
+  strong {
+    font-weight: bold;
+  }

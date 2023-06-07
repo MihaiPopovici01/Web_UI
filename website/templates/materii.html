@@ -1,19 +1,23 @@
-{% extends "base.html" %} {% block title%}Home{% endblock %} {% block content%}
-
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
 <div class="materii-container">
     <div class="titlu-materii">Materii</div>
 
-    <div class="mat-elem-container" style="display:flex; gap: 20px">
+    <div class="mat-elem-container">
         {% for datas in data %}
-            <a class="materie-element" href="/materie-info">
-                <div class="titlu-materie">{{datas.Name}}</div>
-                <div>
-                    <img class="img-materie" src="/static/images/WebDevelopmentImage.jpeg">
-                </div>
-            </a>
-        {% endfor%}
+        <a class="materie-element" style="text-decoration: none;" 
+        href="{{ url_for('views.updateDisciplina',disciplina_id =  datas.Id ) }}">
+            <div class="titlu-materie">{{ datas.Name }}</div>
+            <div class="materie-info">
+                <div class="info-item"><strong>Professor:</strong> {{ datas.Prof_Name }}</div>
+                <div class="info-item"><strong>Room:</strong> {{ datas.Room }}</div>
+                <div class="info-item"><strong>Course Start Hour:</strong> {{ datas.Cours_Start_Hour }}</div>
+                <div class="info-item"><strong>Year:</strong> {{ datas.Year }}</div>
+                <div class="info-item"><strong>Semester:</strong> {{ datas.Semester }}</div>
+            </div>
+        </a>
+        {% endfor %}
     </div>
-    
 </div>
-
 {% endblock %}

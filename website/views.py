@@ -8,41 +8,57 @@ views = Blueprint('views', __name__)
 def home():
     return render_template("home.html")
 
-# @views.route('/add-disciplina', methods=['GET','POST'])
-# def addDisciplina():
+@views.route('/add-disciplina', methods=['GET','POST'])
+def addDisciplina():
 
-#     profesori = InfoProfessor.query.order_by(InfoProfessor.id).all()
+    if(request.method == 'POST'):
+        dictToSend= {
+            'Name' : request.form.get('nume'),
+            'Prof_Name' : request.form.get('nume_prof'),
+            'Room' : request.form.get('sala'),
+            'Cours_Start_Hour' : request.form.get('ora_inceperii'),
+            'Year' : request.form.get('anul'),
+            'Semester' : request.form.get('semestrul')
+        }
+        res = requests.post('http://api.local:8888/disciplines/add', json=dictToSend)
 
-#     if(request.method == 'POST'):
-#         name = request.form.get('nume')
-#         prof_curs_id = request.form.get('profesor_curs')
-#         prof_lab_id = request.form.get('profesor_lab')
+        flash("Disciplina a fost adaugata cu succes", category='success')
 
-#         new_dis = Disciplina(nume = name, prof_curs_id = prof_curs_id, prof_lab_id = prof_lab_id, an = 1 )
-#         db.session.add(new_dis)
-#         db.session.commit()
+    return render_template("addDisciplina.html")
+
+@views.route('/update-disciplina/<disciplina_id>', methods=['GET','POST'])
+def updateDisciplina(disciplina_id):
+
+    url = "http://api.local:8888/disciplines/" + str(disciplina_id)
+    req = requests.get(url)
+    data = req.json()
+
+    if(request.method == 'POST'):
+
+        if request.form.get('delete') == 'DELETE':
+            res = requests.delete(url)
+
         
-#         flash("Disciplina a fost adaugata cu succes", category='success')
+        dictToSend= {
+            'Name' : request.form.get('nume'),
+            'Prof_Name' : request.form.get('nume_prof'),
+            'Room' : request.form.get('sala'),
+            'Cours_Start_Hour' : request.form.get('ora_inceperii'),
+            'Year' : request.form.get('anul'),
+            'Semester' : request.form.get('semestrul')
+        }
+        url = "http://api.local:8888/disciplines/" +  str(disciplina_id)
+        res = requests.put(url, json=dictToSend)
 
-    
+        flash("Disciplina a fost modificata cu succes", category='success')
 
-#     return render_template("addDisciplina.html", user= current_user, profesori = profesori )
+    return render_template("updateDisciplina.html", data=data)
 
-
-# @views.route('/info')
-# def info():
-
-#     student = InfoStudent.query.filter_by(id_student=current_user.id).first()
-
-#     return render_template("studentInfo.html", user= current_user, student = student)
-
-# @views.route('/materii-prof')
-# def materii_prof():
-#     user = InfoProfessor.query.filter_by(id_prof=current_user.id).first()
-#     list = Disciplina.query.filter_by(prof_curs_id = user.id).order_by(Disciplina.id).all()
-#     list1 = Disciplina.query.filter_by(prof_lab_id = user.id).order_by(Disciplina.id).all()
-#     return render_template("materiiProf.html", user= current_user, materii1 = list, materii2 =list1 )
-
+@views.route('/events')
+def events():
+    req = requests.get('http://api.local:8888/events')
+    data = req.json()
+    return render_template("events.html",  events=data)
 
 @views.route('/materii')
 def materii():
@@ -50,26 +66,15 @@ def materii():
     data = req.json()
     return render_template("materii.html", data=data)
 
-# @views.route('/alege-disciplina', methods=['GET','POST'])
-# def alegeDisciplina():
-#     user = InfoStudent.query.filter_by(id_student=current_user.id).first()
-#     list = Disciplina.query.filter_by(an = user.an).order_by(Disciplina.id).all()
+@views.route('/study_groups')
+def study_groups():
+    req = requests.get('http://api.local:8888/study_groups')
+    data = req.json()
+    return render_template("studyGroups.html",  data=data)
 
-#     if(request.method == 'POST'):
-#         disciplina_id = request.form.get('disciplina')
-#         disciplina_stud = InfoDisciplina.query.filter_by(student_id=current_user.id, disciplina_id = disciplina_id).first()
 
-#         disciplina= json.dumps(disciplina_stud)
-#         session['disciplina'] = disciplina
-
-#         return redirect(url_for('views.materieInfo', disciplina = disciplina))
-
-    
-
-#     return render_template("alegeMaterie.html", user= current_user, discipline = list )
-
-# @views.route('/materie-info', methods=['GET'])
-# def materieInfo():
-
-#     disciplina = session['disciplina']
-#     return render_template("materieInfo.html", user= current_user,  disciplina = json.loads(disciplina))
+@views.route('/users')
+def users():
+    req = requests.get('http://api.local:8888/users')
+    data = req.json()
+    return render_template("users.html", users=data)

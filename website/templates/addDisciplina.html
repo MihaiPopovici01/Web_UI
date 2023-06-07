@@ -5,24 +5,19 @@ content%}
     <h3 align="center">Adauga o disciplina</h3>
     <div class="form-group">
         <label for="nume">Nume</label>
-        <input type="text" class="form-control" id="nume" name="nume" placeholder="Enter name" />
+        <input type="text" class="form-control" id="nume" name="nume" placeholder="Numele materiei" />
+        <label for="nume_prof">Numele Profesorului</label>
+        <input type="text" class="form-control" id="nume_prof" name="nume_prof" placeholder="Numele profesorului" />
+        <label for="sala">Sala</label>
+        <input type="text" class="form-control" id="sala" name="sala" placeholder="Sala" />
+        <label for="ora_inceperii">Ora inceperii</label>
+        <input type="time" class="form-control" id="ora_inceperii" name="ora_inceperii" placeholder="Ora inceperii" />
+        <label for="anul">Anul</label>
+        <input type="number" class="form-control" id="anul" name="anul" placeholder="Anul" />
+        <label for="anul">Semestrul</label>
+        <input type="number" class="form-control" id="semestrul" name="semestrul" placeholder="Semestrul" />
     </div>
-    <div class="form-group">
-        <label for="prof_curs">Alege profesorul care v-a preda cursul</label>
-        <SELECT name="profesor_curs">
-            {% for p in profesori %}
-            <OPTION value={{p.id}}>{{p.first_name + " " + p.last_name}}</option>
-            {% endfor %}
-        </SELECT>
-    </div>
-    <div class="form-group">
-        <label for="prof_lab">Alege profesorul care v-a preda laboratorul</label>
-        <SELECT name="profesor_lab">
-            {% for p in profesori %}
-            <OPTION value={{p.id}}>{{p.first_name + " " + p.last_name}}</option>
-            {% endfor %}
-        </SELECT>
-    </div>
+    
     <br />
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
