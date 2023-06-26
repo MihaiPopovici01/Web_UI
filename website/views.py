@@ -78,3 +78,46 @@ def users():
     req = requests.get('http://api.local:8888/users')
     data = req.json()
     return render_template("users.html", users=data)
+
+
+@views.route('/add-event', methods=['GET','POST'])
+def addEvent():
+
+    if(request.method == 'POST'):
+        dictToSend= {
+            'Name' : request.form.get('nume'),
+            'Start_Date' : request.form.get('start_date'),
+            'End_Date' : request.form.get('end_date'),
+            'Description' : request.form.get('description'),
+        }
+        res = requests.post('http://api.local:8888/events/add', json=dictToSend)
+
+        flash("Evenimentul a fost adaugat cu succes", category='success')
+
+    return render_template("addEvent.html")
+
+@views.route('/update-event/<event_id>', methods=['GET','POST'])
+def updateEvent(event_id):
+
+    url = "http://api.local:8888/events/" + str(event_id)
+    req = requests.get(url)
+    data = req.json()
+
+    if(request.method == 'POST'):
+
+        if request.form.get('delete') == 'DELETE':
+            res = requests.delete(url)
+
+        
+        dictToSend= {
+            'Name' : request.form.get('nume'),
+            'Start_Date' : request.form.get('start_date'),
+            'End_Date' : request.form.get('end_date'),
+            'Description' : request.form.get('description'),
+        }
+        url = "http://api.local:8888/events/" +  str(event_id)
+        res = requests.put(url, json=dictToSend)
+
+        flash("Evenimentul a fost modificat cu succes", category='success')
+
+    return render_template("updateEvent.html", data=data)

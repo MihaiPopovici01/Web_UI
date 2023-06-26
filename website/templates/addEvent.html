@@ -1,0 +1,20 @@
+{% extends "base.html" %} {% block title%}Sign up{% endblock %} {% block
+    content%}
+    
+    <form method="POST" style="padding: 10% 25%;">
+        <h3 align="center">Adauga o disciplina</h3>
+        <div class="form-group">
+            <label for="nume">Nume</label>
+            <input type="text" class="form-control" id="nume" name="nume" placeholder="Numele evenimentului" />
+            <label for="start_date">Data inceperii</label>
+            <input type="datetime-local" class="form-control" id="start_date" name="start_date" placeholder="Data inceperii" />
+            <label for="end_date">Data incheierii</label>
+            <input type="datetime-local" class="form-control" id="end_date" name="end_date" placeholder="Data incheierii" />
+            <label for="description">Descrierea</label>
+            <input type="text" class="form-control" id="description" name="description" placeholder="Descrierea evenimentului" />
+        </div>
+        
+        <br />
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    {% endblock %}

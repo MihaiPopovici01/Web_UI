@@ -6,7 +6,7 @@
 
     <div class="event-elem-container">
         {% for event in events %}
-        <a class="event-element" href="/event-info" style="text-decoration: none;">
+        <a class="event-element" href="{{ url_for('views.updateEvent',event_id =  event.Id ) }}" style="text-decoration: none;">
             <div class="event-title">{{ event.Name }}</div>
             <div class="event-info">
                 <div class="info-item"><strong>Start Date:</strong> {{ event.Start_Date }}</div>
